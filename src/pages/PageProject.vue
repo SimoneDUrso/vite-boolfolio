@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
+import { store } from '../store';
 
     export default {
     components: {
@@ -22,7 +23,7 @@ import ProjectCard from '../components/ProjectCard.vue';
 
     methods: {
         getProjects(){
-        axios.get('http://127.0.0.1:8000/api/projects').then((response) => {
+        axios.get(`${store.url}${store.urlProject}`).then((response) => {
             // console.log(response.data.results);
 
             this.projects = response.data.results.data;
@@ -35,7 +36,7 @@ import ProjectCard from '../components/ProjectCard.vue';
         paginate(page){
         this.current_page = page;
 
-        axios.get('http://127.0.0.1:8000/api/projects', {params: { page: page}}).then((response) => {
+        axios.get(`${store.url}${store.urlProject}`, {params: { page: page}}).then((response) => {
             this.projects = response.data.results.data;
         });
         }
@@ -50,6 +51,7 @@ import ProjectCard from '../components/ProjectCard.vue';
 
     <div class="container">
         <div class="row">
+            <h1 class="text-center mt-5">I miei progetti</h1>
         <ProjectCard v-for="project in projects" :key="project.id" :project="project"/>
         </div>
 

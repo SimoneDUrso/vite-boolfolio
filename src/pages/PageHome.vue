@@ -7,8 +7,8 @@ export default {
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                ciao
+            <div class="col-12 mt-5">
+                <h1 class="text-center">Welcome to my portfolio </h1>
             </div>
         </div>
     </div>

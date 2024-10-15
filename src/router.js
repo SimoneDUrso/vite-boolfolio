@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import PageHome from "./pages/PageHome.vue";
 import PageProject from "./pages/PageProject.vue";
+import AboutMe from "./pages/AboutMe.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,7 +16,12 @@ const router = createRouter({
             path: '/portfolio',
             name: 'projects',
             component: PageProject
-        }
+        },
+        {
+            path: '/about',
+            name: 'aboutme',
+            component: AboutMe
+        },
     ]
 })
 
