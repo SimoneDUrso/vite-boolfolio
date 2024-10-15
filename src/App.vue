@@ -1,14 +1,19 @@
 <script>
 import axios from 'axios';
 import ProjectCard from './components/ProjectCard.vue';
+import AppHeader from './components/AppHeader.vue';
+import { store } from './store';
 
 export default {
   components: {
     ProjectCard,
+    AppHeader,
   },
 
   data(){
     return{
+      store,
+
       projects: [],
 
       first_page: 1, 
@@ -46,7 +51,10 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <AppHeader :navItems="store.menuItems"/>
+  <router-view></router-view>
+
+  <!-- <div class="container">
     <div class="row">
       <ProjectCard v-for="project in projects" :key="project.id" :project="project"/>
     </div>
@@ -66,7 +74,7 @@ export default {
         </ul>
       </nav>
     </div>
-  </div>
+  </div> -->
 </template>
 <style lang="scss">
   @import './styles/generals.scss';
