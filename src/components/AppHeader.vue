@@ -13,10 +13,11 @@ export default {
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Homepage</a>
-                <a class="nav-link" href="#">Portfolio</a>
-            </div>
+            <ul class="navbar-nav">
+                <li v-for="item, in navItems">
+                    <router-link class="nav-link active" aria-current="page" :to=" {name: item.name} ">  {{ item.label }} </router-link>
+                </li>
+            </ul>
         </div>
         </div>
     </nav>
