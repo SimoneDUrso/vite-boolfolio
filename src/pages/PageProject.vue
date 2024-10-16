@@ -12,6 +12,7 @@ import { store } from '../store';
         return{
         projects: [],
 
+        current_page: null,
         first_page: 1, 
         last_page: null,
         }

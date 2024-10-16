@@ -11,12 +11,15 @@ export default {
 
     methods: {
         getSingleProject(){
-            axios.get(`${store.url}${store.urlProject}${this.$route.params.slug}`).then((result) => {
+            axios.get(`${store.url}${store.urlProject}/${this.$route.params.slug}`).then((result) => {
                 console.log(result);
             });
         }
     },
 
+    created() {
+        this.getSingleProject();
+    },
 }
 </script>
 <template>
