@@ -4,6 +4,7 @@ import PageHome from "./pages/PageHome.vue";
 import PageProject from "./pages/PageProject.vue";
 import AboutMe from "./pages/AboutMe.vue";
 import PageSingleProject from "./pages/PageSingleProject.vue";
+import PageNotFound from "./pages/PageNotFound.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -27,6 +28,11 @@ const router = createRouter({
             path: '/projects/:slug',
             name: 'single_project',
             component: PageSingleProject
+        },
+        {
+            path: '/:notFound',
+            name: 'not-found',
+            component: PageNotFound
         },
     ]
 })
