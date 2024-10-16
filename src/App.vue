@@ -15,8 +15,8 @@ export default {
 }
 </script>
 
-<template>
-  
+<template lang="">
+
     <AppHeader :navItems="store.menuItems"/>
     <router-view></router-view>
 
