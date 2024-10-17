@@ -28,12 +28,14 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex justify-content-center mt-5">
-                <div class="card custom-card mt-5">
-                    <img class="img-fluid img-fixed-size" :src=" project.image_project.startsWith('http') ? project.image_project : `http://127.0.0.1:8000/storage/${project.image_project}` " :alt="project.name">
+                <div class="card custom-card mt-5" v-if="project.image_project">
+                    
+                        <img class="img-fluid img-fixed-size" :src=" project.image_project.startsWith('http') ? project.image_project : `http://127.0.0.1:8000/storage/${project.image_project}` " :alt="project.name">
+                    
                     <div class="card-body">
                         <h5 class="card-title">{{ project.name }}</h5>
                         <p class="card-text">{{ project.description }}</p>
-                        <p v-if="project.technologies.length > 0">
+                        <p v-if="project.technologies && project.technologies.length > 0">
                             <strong>Tecnologie:</strong>
                             <span class="mx-1" v-for="(techno, index) in project.technologies" :key="index">
                                 {{ techno.name }}
