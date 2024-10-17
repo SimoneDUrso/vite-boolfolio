@@ -14,7 +14,6 @@ export default {
     methods: {
         getSingleProject(){
             axios.get(`${store.url}${store.urlProject}/${this.$route.params.slug}`).then((result) => {
-                console.log(result.data.results);
                 this.project = result.data.results;
             });
         }
@@ -34,6 +33,16 @@ export default {
                     <div class="card-body">
                         <h5 class="card-title">{{ project.name }}</h5>
                         <p class="card-text">{{ project.description }}</p>
+                        <p v-if="project.technologies.length > 0">
+                            <strong>Tecnologie:</strong>
+                            <span class="mx-1" v-for="(techno, index) in project.technologies" :key="index">
+                                {{ techno.name }}
+                            </span>
+                        </p>
+                        <span class="mx-1" v-if="project.type">
+                            <strong>Tipo:</strong>
+                            {{ project.type.name }}
+                        </span>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">{{ project.date }}</li>
